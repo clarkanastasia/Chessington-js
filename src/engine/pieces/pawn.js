@@ -2,6 +2,7 @@ import Player from '../player';
 import Square from '../square';
 import Piece from './piece';
 
+
 export default class Pawn extends Piece {
     constructor(player) {
         super(player);
@@ -18,10 +19,10 @@ export default class Pawn extends Piece {
         let location = board.findPiece(this);
         let moves = [];
         if (this.firstMove == true){
-            if (this.player === Player.WHITE) {
-            moves = [Square.at(location.row + 1, location.col), Square.at(location.row + 2, location.col)]
+            if (this.player === Player.WHITE){
+            board.getPiece(Square.at(location.row +1, location.col)) !== undefined ? moves = [] : moves = [Square.at(location.row + 1, location.col), Square.at(location.row + 2, location.col)]
          } else {
-            moves = [Square.at(location.row - 1, location.col), Square.at(location.row -2, location.col)]
+            board.getPiece(Square.at(location.row -1, location. col)) !== undefined ? moves = [] : moves = [Square.at(location.row - 1, location.col), Square.at(location.row -2, location.col)]
             }
         } else {
             if (this.player === Player.WHITE) {
@@ -30,6 +31,7 @@ export default class Pawn extends Piece {
                 moves = [Square.at(location.row - 1, location.col)]
                 }
         }
+    moves = moves.filter((item) => board.getPiece(Square.at(item.row, item.col)) === undefined);
     return moves;
     }
 
