@@ -10,45 +10,79 @@ export default class Rook extends Piece {
 
     getAvailableMoves(board) {
         let location = board.findPiece(this);
+        let row = location.row;
+        let col = location.col;
         let moves = [];
-        for (let i = 0; i < 8; i++) {
-            if (i === location.row) {continue;}
-                moves.push(Square.at(i, location.col))
-            
-        }
-        for (let i = 0; i < 8; i++) {
-            if (i === location.col) {continue;}
-                moves.push(Square.at(location.row, i))         
-        }
-        console.log(moves);
-        return moves;
 
-        for (let i= location.col +1; i < 8; i++){
-            if(board.getPiece(Square.at(location.row, i)) !== undefined){
-                if(board.getPiece(Square.at(location.row, i)). player === this.player){
+        // start of first loop
+        for (let i = row + 1; i < 8; i++)
+        {
+            if (board.getPiece(Square.at(i, col)) !== undefined)
+            {
+                if (board.getPiece(Square.at(i, col)) !== this.player)
+                {
+                    moves.push(Square.at(i, col));
                     break;
                 } else {
-                    moves.push(Square.at(location.row, i))
                     break;
-                }
-            }
-            moves.push(Square.at(location.row, i))
-        }
+                } 
+            } else {
+                moves.push(Square.at(i, col))
+            }     
+        } 
+    
+        // start of second loop
+        for (let i = row - 1; i >= 0; i--)
+        {
+            if (board.getPiece(Square.at(i, col)) !== undefined)
+            {
+                if (board.getPiece(Square.at(i, col)) !== this.player)
+                {
+                    moves.push(Square.at(i, col));
+                    break;
+                } else {
+                    break;
+                } 
+            } else {
+                moves.push(Square.at(i, col))
+            }     
+        } 
 
-        for (let i= location.col -1; i < 0; i--){
-            moves.push(Square.at(location.row, i))
-        }
+        // start of third loop
+        for (let i = col + 1; i < 8; i++)
+        {
+            if (board.getPiece(Square.at(row, i)) !== undefined)
+            {
+                if (board.getPiece(Square.at(row, i)) !== this.player)
+                {
+                    moves.push(Square.at(row, i));
+                    break;
+                } else {
+                    break;
+                } 
+            } else {
+                moves.push(Square.at(row, i))
+            }     
+        } 
 
+        // start of fourth loop 
+        for (let i = col - 1; i >= 0; i--)
+        {
+            if (board.getPiece(Square.at(row, i)) !== undefined)
+            {
+                if (board.getPiece(Square.at(row, i)) !== this.player)
+                {
+                    moves.push(Square.at(row, i));
+                    break;
+                } else {
+                    break;
+                } 
+            } else {
+                moves.push(Square.at(row, i))
+            }     
+        } 
         
-        for (let i= location.row +1; i < 8; i++){
-            moves.push(Square.at(i, location.col))
-        }
-
-        for (let i= location.col -1; i < 0; i--){
-            moves.push(Square.at(i, location.col))
-        }
+        return moves;
     }
+}  
 
-
-   
-}
