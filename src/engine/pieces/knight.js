@@ -23,8 +23,7 @@ export default class Knight extends Piece {
         let down2Right1  = Square.at(row -2 , col + 1);
         
         moves = [up2Right1, up2Left1, left2Up1, left2Down1, right2Up1, right2Down1, down2Left1, down2Right1];
-        moves = moves.filter((square) => square.row <= 7 && square.row >= 0 );
-        moves = moves.filter ((square ) => square.col <= 7 && square.col >= 0 );
+        moves = moves.filter((square) => square.row <= 7 && square.row >= 0 && square.col <= 7 && square.col >= 0 );
         
         return moves;
     }

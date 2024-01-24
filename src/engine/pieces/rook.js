@@ -1,8 +1,6 @@
 import Piece from './piece';
 import Square from '../../../src/engine/square';
 
-
-
 export default class Rook extends Piece {
     constructor(player) {
         super(player, "rook");
@@ -14,7 +12,6 @@ export default class Rook extends Piece {
         let col = location.col;
         let moves = [];
 
-        // start of first loop
         for (let i = row + 1; i < 8; i++)
         {
             if (board.getPiece(Square.at(i, col)) !== undefined)
@@ -36,7 +33,6 @@ export default class Rook extends Piece {
             }     
         } 
     
-        // start of second loop
         for (let i = row - 1; i >= 0; i--)
         {
             if (board.getPiece(Square.at(i, col)) !== undefined)
@@ -58,7 +54,6 @@ export default class Rook extends Piece {
             }    
         } 
 
-        // start of third loop
         for (let i = col + 1; i < 8; i++)
         {
             if (board.getPiece(Square.at(row, i)) !== undefined)
@@ -80,7 +75,6 @@ export default class Rook extends Piece {
             }    
         } 
 
-        // start of fourth loop 
         for (let i = col - 1; i >= 0; i--)
         {
             if (board.getPiece(Square.at(row, i)) !== undefined)
