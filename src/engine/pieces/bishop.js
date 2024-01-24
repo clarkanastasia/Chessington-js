@@ -14,28 +14,95 @@ export default class Bishop extends Piece {
         let moves = [];
 
 // loop diagonally up and left
+
         for (let i = 1; i <= Math.min(7-row, col); i++) 
         {
-            moves.push(Square.at(row + i, col - i))
+            if (board.getPiece(Square.at(row + i, col - i)) !== undefined)
+            {
+            //     if (board.getPiece(Square.at(row + i, col - i)).player !== this.player)
+            //     {
+            //         if (board.getPiece(Square.at(row + i, col - i)).type === "king")
+            //         {
+            //             break;
+            //         } else {
+            //             moves.push(Square.at(row + i, col - i));
+            //             break;
+            //         }
+            //     } else {
+                     break;
+            //     } 
+            } else {
+                moves.push(Square.at(row + i, col - i))
+            }  
         }
-        
+
 // loop diagonally up and right
+
         for (let i = 1; i <= Math.min(7-row, 7-col); i++) 
         {
-            moves.push(Square.at(row + i, col + i))
+            if (board.getPiece(Square.at(row + i, col + i)) !== undefined)
+            {
+            //     if (board.getPiece(Square.at(row + i, col + i)).player !== this.player)
+            //     {
+            //         if (board.getPiece(Square.at(row + i, col + i)).type === "king")
+            //         {
+            //             break;
+            //         } else {
+            //             moves.push(Square.at(row + i, col + i));
+            //             break;
+            //         }
+            //     } else {
+                    break;
+            //     } 
+             } else {
+                moves.push(Square.at(row + i, col + i))
+            }           
         }
 
 // loop diagonally down and left
-        for (let i = 1; i <= Math.min(row, col); i--){
-        moves.push(Square.at(row - i, col - i))
+        for (let i = 1; i <= Math.min(row, col); i++)
+        {
+            if (board.getPiece(Square.at(row - i, col - i)) !== undefined)
+            {
+            //     if (board.getPiece(Square.at(row - i, col - i)).player !== this.player)
+            //     {
+            //         if (board.getPiece(Square.at(row - i, col - i)).type === "king")
+            //         {
+            //             break;
+            //         } else {
+            //             moves.push(Square.at(row - i, col - i));
+            //             break;
+            //         }
+            //     } else {
+                    break;
+            //     } 
+            } else {
+                moves.push(Square.at(row - i, col - i))
+            }        
         }
 
 // loop diagonally down and right
-        for (let i = 1; i <= Math.min(row, 7-col); i--)
+        for (let i = 1; i <= Math.min(row, 7-col); i++)
         {
-         moves.push(Square.at(row - i, col + i))
+            if (board.getPiece(Square.at(row - i, col + i)) !== undefined)
+            {
+            //     if (board.getPiece(Square.at(row - i, col + i)).player !== this.player)
+            //     {
+            //         if (board.getPiece(Square.at(row - i, col + i)).type === "king")
+            //         {
+            //             break;
+            //         } else {
+            //             moves.push(Square.at(row - i, col + i));
+            //             break;
+            //         }
+            //     } else {
+                    break;
+            //     } 
+            } else {
+                moves.push(Square.at(row - i, col + i))
+            }  
         }
     
-return moves
+        return moves;
     }
 }
