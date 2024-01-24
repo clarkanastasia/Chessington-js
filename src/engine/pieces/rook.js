@@ -5,7 +5,7 @@ import Square from '../../../src/engine/square';
 
 export default class Rook extends Piece {
     constructor(player) {
-        super(player);
+        super(player, "rook");
     }
 
     getAvailableMoves(board) {
@@ -19,10 +19,15 @@ export default class Rook extends Piece {
         {
             if (board.getPiece(Square.at(i, col)) !== undefined)
             {
-                if (board.getPiece(Square.at(i, col)) !== this.player)
+                if (board.getPiece(Square.at(i, col)).player !== this.player)
                 {
-                    moves.push(Square.at(i, col));
-                    break;
+                    if (board.getPiece(Square.at(i,col)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(i, col));
+                        break;
+                    }
                 } else {
                     break;
                 } 
@@ -36,16 +41,21 @@ export default class Rook extends Piece {
         {
             if (board.getPiece(Square.at(i, col)) !== undefined)
             {
-                if (board.getPiece(Square.at(i, col)) !== this.player)
+                if (board.getPiece(Square.at(i, col)).player !== this.player)
                 {
-                    moves.push(Square.at(i, col));
-                    break;
+                    if (board.getPiece(Square.at(i,col)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(i, col));
+                        break;
+                    }
                 } else {
                     break;
                 } 
             } else {
                 moves.push(Square.at(i, col))
-            }     
+            }    
         } 
 
         // start of third loop
@@ -53,16 +63,21 @@ export default class Rook extends Piece {
         {
             if (board.getPiece(Square.at(row, i)) !== undefined)
             {
-                if (board.getPiece(Square.at(row, i)) !== this.player)
+                if (board.getPiece(Square.at(row, i)).player !== this.player)
                 {
-                    moves.push(Square.at(row, i));
-                    break;
+                    if (board.getPiece(Square.at(row,i)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(row, i));
+                        break;
+                    }
                 } else {
                     break;
                 } 
             } else {
                 moves.push(Square.at(row, i))
-            }     
+            }    
         } 
 
         // start of fourth loop 
@@ -70,16 +85,21 @@ export default class Rook extends Piece {
         {
             if (board.getPiece(Square.at(row, i)) !== undefined)
             {
-                if (board.getPiece(Square.at(row, i)) !== this.player)
+                if (board.getPiece(Square.at(row, i)).player !== this.player)
                 {
-                    moves.push(Square.at(row, i));
-                    break;
+                    if (board.getPiece(Square.at(row,i)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(row, i));
+                        break;
+                    }
                 } else {
                     break;
                 } 
             } else {
                 moves.push(Square.at(row, i))
-            }     
+            }    
         } 
         
         return moves;
