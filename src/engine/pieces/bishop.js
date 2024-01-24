@@ -19,18 +19,18 @@ export default class Bishop extends Piece {
         {
             if (board.getPiece(Square.at(row + i, col - i)) !== undefined)
             {
-            //     if (board.getPiece(Square.at(row + i, col - i)).player !== this.player)
-            //     {
-            //         if (board.getPiece(Square.at(row + i, col - i)).type === "king")
-            //         {
-            //             break;
-            //         } else {
-            //             moves.push(Square.at(row + i, col - i));
-            //             break;
-            //         }
-            //     } else {
+                if (board.getPiece(Square.at(row + i, col - i)).player !== this.player)
+                {
+                    if (board.getPiece(Square.at(row + i, col - i)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(row + i, col - i));
+                        break;
+                    }
+                } else {
                      break;
-            //     } 
+                } 
             } else {
                 moves.push(Square.at(row + i, col - i))
             }  
@@ -42,18 +42,18 @@ export default class Bishop extends Piece {
         {
             if (board.getPiece(Square.at(row + i, col + i)) !== undefined)
             {
-            //     if (board.getPiece(Square.at(row + i, col + i)).player !== this.player)
-            //     {
-            //         if (board.getPiece(Square.at(row + i, col + i)).type === "king")
-            //         {
-            //             break;
-            //         } else {
-            //             moves.push(Square.at(row + i, col + i));
-            //             break;
-            //         }
-            //     } else {
+                if (board.getPiece(Square.at(row + i, col + i)).player !== this.player)
+                {
+                    if (board.getPiece(Square.at(row + i, col + i)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(row + i, col + i));
+                        break;
+                    }
+                } else {
                     break;
-            //     } 
+                } 
              } else {
                 moves.push(Square.at(row + i, col + i))
             }           
@@ -64,18 +64,18 @@ export default class Bishop extends Piece {
         {
             if (board.getPiece(Square.at(row - i, col - i)) !== undefined)
             {
-            //     if (board.getPiece(Square.at(row - i, col - i)).player !== this.player)
-            //     {
-            //         if (board.getPiece(Square.at(row - i, col - i)).type === "king")
-            //         {
-            //             break;
-            //         } else {
-            //             moves.push(Square.at(row - i, col - i));
-            //             break;
-            //         }
-            //     } else {
+                if (board.getPiece(Square.at(row - i, col - i)).player !== this.player)
+                {
+                    if (board.getPiece(Square.at(row - i, col - i)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(row - i, col - i));
+                        break;
+                    }
+                } else {
                     break;
-            //     } 
+                } 
             } else {
                 moves.push(Square.at(row - i, col - i))
             }        
@@ -86,18 +86,18 @@ export default class Bishop extends Piece {
         {
             if (board.getPiece(Square.at(row - i, col + i)) !== undefined)
             {
-            //     if (board.getPiece(Square.at(row - i, col + i)).player !== this.player)
-            //     {
-            //         if (board.getPiece(Square.at(row - i, col + i)).type === "king")
-            //         {
-            //             break;
-            //         } else {
-            //             moves.push(Square.at(row - i, col + i));
-            //             break;
-            //         }
-            //     } else {
+                if (board.getPiece(Square.at(row - i, col + i)).player !== this.player)
+                {
+                    if (board.getPiece(Square.at(row - i, col + i)).type === "king")
+                    {
+                        break;
+                    } else {
+                        moves.push(Square.at(row - i, col + i));
+                        break;
+                    }
+                } else {
                     break;
-            //     } 
+                } 
             } else {
                 moves.push(Square.at(row - i, col + i))
             }  
