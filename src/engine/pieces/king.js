@@ -24,10 +24,13 @@ export default class King extends Piece {
         let backRight = Square.at(row -1 , col + 1);
 
         moves = [front, back, left, right, frontLeft, frontRight, backLeft, backRight];
-        moves = moves.filter((square) => square.row <= 7 && square.row >= 0 );
-        moves = moves.filter ((square ) => square.col <= 7 && square.col >= 0 );
+        // not pass the boundray
+        moves = moves.filter((square) => square.row <= 7 && square.row >= 0 && square.col <= 7 && square.col >= 0 );
 
-        console.log(`Moves array: ${moves}`);
+        // avoid friendly pieces, take opposing pieces(except king)
+        moves = moves.filter((square) => board.getPiece(square) === undefined || board.getPiece(square).player !== this.player && board.getPiece(square).type !== "king");
+
+        // console.log(`Moves array: ${moves}`);
         return moves;
     }
 }
